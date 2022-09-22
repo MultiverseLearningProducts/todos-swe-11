@@ -19,11 +19,11 @@ export default function Form(props) {
         <label htmlFor="task-name">Task name</label>
         <br />
         <input
+          required
           id="task-name"
           type="text"
           value={name}
           onChange={handleChange}
-          required
         />
       </p>
       <p>

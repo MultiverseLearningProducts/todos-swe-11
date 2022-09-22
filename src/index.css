@@ -25,6 +25,15 @@ button {
   font-style: italic;
 }
 
+.Task {
+  display: flex;
+  gap: 0.5em;
+}
+
+.Task + .Task {
+  margin-top: 1em;
+}
+
 .Task-checkbox:checked + .Task-label {
   text-decoration: line-through;
 }

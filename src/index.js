@@ -1,15 +1,18 @@
 import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
+import { getStorage } from "./storage";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+
+const tasks = getStorage();
 
 const container = document.getElementById("root");
 const root = ReactDOM.createRoot(container);
 
 root.render(
   <StrictMode>
-    <App />
+    <App tasks={tasks} />
   </StrictMode>
 );
 
