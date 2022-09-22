@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { Fragment } from "react";
+import Form from "./components/Form";
+import Task from "./components/Task";
 
 function App() {
+  const todos = [];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <Fragment>
+      <header>
+        <h1>Todos</h1>
       </header>
-    </div>
+      <main>
+        <Form />
+        {todos.length ? (
+          // eslint-disable-next-line jsx-a11y/no-redundant-roles
+          <ul role="list">
+            {todos.map((todo) => (
+              <Task id={todo.id} key={todo.id}>
+                {todo.name}
+              </Task>
+            ))}
+          </ul>
+        ) : (
+          <p className="italic">Add some tasks...</p>
+        )}
+      </main>
+    </Fragment>
   );
 }
 
