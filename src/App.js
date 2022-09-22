@@ -4,7 +4,7 @@ import Layout from "./components/Layout";
 import Form from "./components/Form";
 import Task from "./components/Task";
 
-function App(props) {
+export default function App(props) {
   const [tasks, setTasks] = useState(props.tasks);
 
   function addTask(name) {
@@ -53,5 +53,3 @@ function App(props) {
     </Layout>
   );
 }
-
-export default App;
