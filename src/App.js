@@ -1,5 +1,6 @@
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { setStorage } from "./storage";
+import Layout from "./components/Layout";
 import Form from "./components/Form";
 import Task from "./components/Task";
 
@@ -29,32 +30,27 @@ function App(props) {
   }, [tasks]);
 
   return (
-    <Fragment>
-      <header>
-        <h1>Todos</h1>
-      </header>
-      <main>
-        <Form onSubmit={addTask} />
-        {tasks.length ? (
-          // eslint-disable-next-line jsx-a11y/no-redundant-roles
-          <ul role="list">
-            {tasks.map((task) => (
-              <Task
-                id={task.id}
-                done={task.done}
-                key={task.id}
-                onChange={toggleTask}
-                onClick={deleteTask}
-              >
-                {task.name}
-              </Task>
-            ))}
-          </ul>
-        ) : (
-          <p className="italic">Add some tasks...</p>
-        )}
-      </main>
-    </Fragment>
+    <Layout>
+      <Form onSubmit={addTask} />
+      {tasks.length ? (
+        // eslint-disable-next-line jsx-a11y/no-redundant-roles
+        <ul role="list">
+          {tasks.map((task) => (
+            <Task
+              id={task.id}
+              done={task.done}
+              key={task.id}
+              onChange={toggleTask}
+              onClick={deleteTask}
+            >
+              {task.name}
+            </Task>
+          ))}
+        </ul>
+      ) : (
+        <p className="italic">Add some tasks...</p>
+      )}
+    </Layout>
   );
 }
 

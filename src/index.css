@@ -27,6 +27,7 @@ button {
 
 .Task {
   display: flex;
+  align-items: center;
   gap: 0.5em;
 }
 
@@ -36,4 +37,9 @@ button {
 
 .Task-checkbox:checked + .Task-label {
   text-decoration: line-through;
+}
+
+.Task-button {
+  display: flex;
+  padding: 0;
 }

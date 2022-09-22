@@ -1,3 +1,5 @@
+import { ReactComponent as Trash } from "../trash.svg";
+
 export default function Task(props) {
   function handleChange() {
     props.onChange(props.id);
@@ -20,11 +22,12 @@ export default function Task(props) {
         <span className="Task-label">{props.children}</span>
       </label>
       <button
+        className="Task-button"
         type="button"
         aria-label={`Delete "${props.children}"`}
         onClick={handleClick}
       >
-        &times;
+        <Trash />
       </button>
     </li>
   );
