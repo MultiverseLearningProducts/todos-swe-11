@@ -9,7 +9,7 @@ export default function Form(props) {
     const trimmedName = name.trim();
 
     if (trimmedName) {
-      props.onSubmit(name);
+      props.onSubmit(trimmedName);
     }
 
     setName("");
