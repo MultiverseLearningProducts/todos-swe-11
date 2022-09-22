@@ -5,7 +5,13 @@ export default function Form(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    props.onSubmit(name);
+
+    const trimmedName = name.trim();
+
+    if (trimmedName) {
+      props.onSubmit(name);
+    }
+
     setName("");
   }
 
