@@ -1,22 +1,18 @@
-import { useState } from "react";
-
 export default function Form(props) {
-  const [name, setName] = useState("");
+  function handleChange(event) {
+    props.setInputVal(event.target.value);
+  }
 
   function handleSubmit(event) {
     event.preventDefault();
 
-    const trimmedName = name.trim();
+    const trimmedVal = props.inputVal.trim();
 
-    if (trimmedName) {
-      props.onSubmit(trimmedName);
+    if (trimmedVal) {
+      props.onSubmit(trimmedVal);
     }
 
-    setName("");
-  }
-
-  function handleChange(event) {
-    setName(event.target.value);
+    props.setInputVal("");
   }
 
   return (
@@ -26,14 +22,15 @@ export default function Form(props) {
         <br />
         <input
           required
-          id="task-name"
           type="text"
-          value={name}
+          id="task-name"
+          ref={props.inputEl}
+          value={props.inputVal}
           onChange={handleChange}
         />
       </p>
       <p>
-        <button type="submit">Add task</button>
+        <button type="submit">{props.editId ? "Save" : "Add"} task</button>
       </p>
     </form>
   );

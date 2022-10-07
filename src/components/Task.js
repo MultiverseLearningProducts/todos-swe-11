@@ -1,31 +1,44 @@
+import { ReactComponent as Pencil } from "../pencil.svg";
 import { ReactComponent as Trash } from "../trash.svg";
 
 export default function Task(props) {
-  function handleChange() {
-    props.onChange(props.id);
+  function deleteTask() {
+    props.deleteTask(props.id);
   }
 
-  function handleClick() {
-    props.onClick(props.id);
+  function toggleTask() {
+    props.toggleTask(props.id);
+  }
+
+  function enableEditing() {
+    props.enableEditing(props.id, props.name);
   }
 
   return (
     <li className="Task">
       <label htmlFor={props.id}>
         <input
-          type="checkbox"
           id={props.id}
-          className="Task-checkbox"
+          type="checkbox"
           checked={props.done}
-          onChange={handleChange}
+          onChange={toggleTask}
+          className="Task-checkbox"
         />
-        <span className="Task-label">{props.children}</span>
+        <span className="Task-label">{props.name}</span>
       </label>
       <button
-        className="Task-button"
         type="button"
-        aria-label={`Delete "${props.children}"`}
-        onClick={handleClick}
+        className="Task-button"
+        onClick={enableEditing}
+        aria-label={`Edit "${props.name}"`}
+      >
+        <Pencil />
+      </button>
+      <button
+        type="button"
+        onClick={deleteTask}
+        className="Task-button"
+        aria-label={`Delete "${props.name}"`}
       >
         <Trash />
       </button>
