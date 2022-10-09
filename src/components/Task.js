@@ -3,6 +3,9 @@ import { ReactComponent as Trash } from "../trash.svg";
 
 export default function Task(props) {
   function deleteTask() {
+    const message = `Are you sure you want to delete "${props.name}"?`;
+    const deletionConfirmed = window.confirm(message);
+    if (!deletionConfirmed) return;
     props.deleteTask(props.id);
   }
 
