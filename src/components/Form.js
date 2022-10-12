@@ -24,6 +24,7 @@ export default function Form(props) {
           required
           type="text"
           id="task-name"
+          data-cy="new-task"
           ref={props.inputEl}
           value={props.inputVal}
           onChange={handleChange}

@@ -80,7 +80,9 @@ export default function App(props) {
           ))}
         </ul>
       ) : (
-        <p className="italic">Add some tasks...</p>
+        <p className="italic" data-cy="prompt">
+          Add some tasks...
+        </p>
       )}
     </Layout>
   );

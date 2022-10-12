@@ -18,19 +18,21 @@ export default function Task(props) {
   }
 
   return (
-    <li className="Task">
+    <li className="Task" data-cy="task">
       <label htmlFor={props.id}>
         <input
           id={props.id}
           type="checkbox"
           checked={props.done}
           onChange={toggleTask}
+          data-cy="task-checkbox"
           className="Task-checkbox"
         />
         <span className="Task-label">{props.name}</span>
       </label>
       <button
         type="button"
+        data-cy="task-edit"
         className="Task-button"
         onClick={enableEditing}
         aria-label={`Edit "${props.name}"`}
@@ -40,6 +42,7 @@ export default function Task(props) {
       <button
         type="button"
         onClick={deleteTask}
+        data-cy="task-delete"
         className="Task-button"
         aria-label={`Delete "${props.name}"`}
       >
