@@ -2,6 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+[![Cypress Tests](https://github.com/MultiverseLearningProducts/todos-swe-11/actions/workflows/main.yml/badge.svg?branch=cypress)](https://github.com/MultiverseLearningProducts/todos-swe-11/actions/workflows/main.yml)
+
 ## Available Scripts
 
 In the project directory, you can run:
